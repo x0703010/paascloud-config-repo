@@ -37,13 +37,13 @@ security:
     client:
       clientId: paascloud-client-mdc
       clientSecret: paascloudClientSecret
-      access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
-      user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
+      access-token-uri: http://localhost:7979/uac/oauth/token
+      user-authorization-uri: http://localhost:7979/uac/oauth/authorize
     resource:
-      user-info-uri: http://paascloud-gateway:7979/uac/user
+      user-info-uri: http://localhost:7979/uac/user
       prefer-token-info: false
       jwt:
-        key-uri: http://paascloud-provider-uac:8000/oauth/token_key
+        key-uri: http://localhost:8000/oauth/token_key
 
 paascloud:
   enableSqlLogInterceptor: false
@@ -55,13 +55,13 @@ paascloud:
     interceptor:
       enable: true
   zk:
-    zkAddressList: paascloud-provider-zk:2181
+    zkAddressList: 192.168.136.129:2181
   aliyun:
     rocketMq:
       enable: false
       reliableMessageConsumer: false
       reliableMessageProducer: true
-      namesrvAddr: paascloud-mq-rocket:9876
+      namesrvAddr: 192.168.136.128:9876
       instanceName: paascloud-provider-mdc
       consumerGroup: CID_MDC
       producerGroup: PID_MDC
